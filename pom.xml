@@ -54,20 +54,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 			<plugin>
-            <groupId>com.github.conventionalcommits</groupId>
-            <artifactId>conventional-commits-maven-plugin</artifactId>
-            <version>0.9.2</version>
-            <executions>
-                <execution>
-                    <id>update-version</id>
-                    <phase>validate</phase>
-                    <goals>
-                        <goal>set-version</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+				<groupId>io.github.kermit95</groupId>
+				<artifactId>maven-version-rules-plugin</artifactId>
+				<version>1.0.4</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>apply-rules</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
