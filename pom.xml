@@ -63,14 +63,6 @@
 				<configuration>
 					<tagPattern>v(\d+\.\d+\.\d+)</tagPattern>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>verify</phase>
-						<goals>
-							<goal>release</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
