@@ -63,6 +63,7 @@
 				<configuration>
 					<versionFormat>MAJOR.MINOR.PATCH</versionFormat>
 					<remoteRepository>github</remoteRepository>
+					<breakingChangePattern>BREAKING CHANGE</breakingChangePattern>
 				</configuration>
 				<executions>
 					<execution>
