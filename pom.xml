@@ -60,12 +60,14 @@
 				<groupId>gg.nils</groupId>
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.1.10</version>
-                <configuration>
+                 <configuration>
                     <versionFormat>MAJOR.MINOR.PATCH</versionFormat>
                     <remoteRepository>github</remoteRepository>
                     <breakingChangePattern>BREAKING CHANGE</breakingChangePattern>
                     <commitMessagePattern>feat|fix|BREAKING CHANGE</commitMessagePattern>
                     <majorVersionPattern>BREAKING CHANGE</majorVersionPattern>
+                    <minorVersionPattern>feat</minorVersionPattern>
+                    <patchVersionPattern>fix</patchVersionPattern>
                 </configuration>
 				<executions>
 					<execution>
