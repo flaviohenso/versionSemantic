@@ -61,10 +61,9 @@
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.1.10</version>
 				<configuration>
+					<tagPrefix>v</tagPrefix>
 					<!-- Ajuste o padrão das tags -->
 					<tagPattern>^v(\d+\.\d+\.\d+)$</tagPattern>
-					<!-- Configuração de versão padrão -->
-					<defaultVersioning>MAJOR.MINOR.PATCH</defaultVersioning>
 				</configuration>
 				<executions>
 					<execution>
