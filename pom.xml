@@ -55,19 +55,50 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<plugin>
-				<groupId>io.github.kermit95</groupId>
-				<artifactId>maven-version-rules-plugin</artifactId>
-				<version>1.0.4</version>
-				<executions>
-					<execution>
-						<phase>verify</phase>
-						<goals>
-							<goal>apply-rules</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- Plugin para versionamento baseado em tags do Git -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+            <version>2.14.2</version>
+            <executions>
+                <execution>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>set</goal>
+                    </goals>
+                    <configuration>
+                        <newVersion>${revision}</newVersion>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- Plugin para obter informações do commit do Git -->
+        <plugin>
+            <groupId>pl.project13.maven</groupId>
+            <artifactId>git-commit-id-plugin</artifactId>
+            <version>4.0.0</version>
+            <executions>
+                <execution>
+                    <phase>initialize</phase>
+                    <goals>
+                        <goal>revision</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- Plugin para gerenciar o controle de versão no Git -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-plugin</artifactId>
+            <version>1.11.3</version>
+            <configuration>
+                <connectionType>developerConnection</connectionType>
+                <developerConnection>scm:git:git@github.com:flaviohenso/versionSemantic.git</developerConnection>
+                <tag>${project.version}</tag>
+            </configuration>
+        </plugin>
 		</plugins>
 	</build>
 </project>
