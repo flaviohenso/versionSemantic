@@ -13,7 +13,7 @@
 	<artifactId>semantic-versioning-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Semantic Versioning App</name>
-	<description>A Spring-Boot application with automated Semantic Versioning</description>
+	<description>A Spring Boot application with automated Semantic Versioning</description>
 	<url />
 	<licenses>
 		<license />
@@ -60,6 +60,14 @@
 				<groupId>gg.nils</groupId>
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>release</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
