@@ -60,14 +60,6 @@
 				<groupId>gg.nils</groupId>
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.0.0</version>
-				<executions>
-					<execution>
-						<phase>verify</phase>
-						<goals>
-							<goal>release</goal> <!-- Goal correto -->
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 
 		</plugins>
