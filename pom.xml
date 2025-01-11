@@ -13,7 +13,7 @@
 	<artifactId>semantic-versioning-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Semantic Versioning App</name>
-	<description>A Spring Boot application with automated Semantic Versioning</description>
+	<description>A Spring-Boot application with automated Semantic Versioning</description>
 	<url />
 	<licenses>
 		<license />
