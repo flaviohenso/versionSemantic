@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.version</groupId>
 	<artifactId>semantic-versioning-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Semantic Versioning App</name>
 	<description>A Spring Boot application with automated Semantic Versioning</description>
 	<url />
@@ -73,7 +73,6 @@
             </executions>
         </plugin>
 
-        <!-- Plugin para obter informações do commit do Git -->
         <plugin>
             <groupId>pl.project13.maven</groupId>
             <artifactId>git-commit-id-plugin</artifactId>
