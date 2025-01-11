@@ -62,6 +62,7 @@
 				<version>1.1.10</version>
 				<configuration>
 					<versionFormat>MAJOR.MINOR.PATCH</versionFormat>
+					<remoteRepository>github</remoteRepository>
 				</configuration>
 				<executions>
 					<execution>
