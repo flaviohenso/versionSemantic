@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.version</groupId>
 	<artifactId>semantic-versioning-app</artifactId>
-	<version>718ea33</version>
+	<version>1.0.1-main-SNAPSHOT</version>
 	<name>Semantic Versioning App</name>
 	<description>A Spring Boot application with automated Semantic Versioning</description>
 	<url />
@@ -22,12 +22,12 @@
 		<developer />
 	</developers>
 	<!-- Configuração de SCM -->
-    <scm>
-        <connection>scm:git:https://github.com/flaviohenso/versionSemantic.git</connection>
-        <developerConnection>scm:git:git@github.com:flaviohenso/versionSemantic.git</developerConnection>
-        <url>https://github.com/flaviohenso/versionSemantic</url>
-        <tag>HEAD</tag>
-    </scm>
+	<scm>
+		<connection>scm:git:https://github.com/flaviohenso/versionSemantic.git</connection>
+		<developerConnection>scm:git:git@github.com:flaviohenso/versionSemantic.git</developerConnection>
+		<url>https://github.com/flaviohenso/versionSemantic</url>
+		<tag>HEAD</tag>
+	</scm>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -50,7 +50,6 @@
 		</dependency>
 	</dependencies>
 
-	
 
 	<build>
 		<plugins>
@@ -60,45 +59,45 @@
 			</plugin>
 
 			<!-- Plugin para obter informações do Git -->
-        <plugin>
-            <groupId>pl.project13.maven</groupId>
-            <artifactId>git-commit-id-plugin</artifactId>
-            <version>4.0.0</version>
-            <configuration>
-                <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                <generateGitPropertiesFile>false</generateGitPropertiesFile>
-                <includeOnlyProperties>
-                    <property>git.commit.id.describe</property>
-                </includeOnlyProperties>
-            </configuration>
-            <executions>
-                <execution>
-                    <phase>initialize</phase>
-                    <goals>
-                        <goal>revision</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>4.0.0</version>
+				<configuration>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+					<generateGitPropertiesFile>false</generateGitPropertiesFile>
+					<includeOnlyProperties>
+						<property>git.commit.id.describe</property>
+					</includeOnlyProperties>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
-        <!-- Plugin para atualizar a versão no pom.xml -->
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>versions-maven-plugin</artifactId>
-            <version>2.14.2</version>
-            <executions>
-                <execution>
-                    <id>update-version</id>
-                    <phase>initialize</phase>
-                    <goals>
-                        <goal>set</goal>
-                    </goals>
-                    <configuration>
-                        <newVersion>${git.commit.id.describe}</newVersion>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
+			<!-- Plugin para atualizar a versão no pom.xml -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.14.2</version>
+				<executions>
+					<execution>
+						<id>update-version</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>set</goal>
+						</goals>
+						<configuration>
+							<newVersion>${git.commit.id.describe.replaceFirst("^v", "")}</newVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
