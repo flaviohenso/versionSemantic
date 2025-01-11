@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.version</groupId>
 	<artifactId>semantic-versioning-app</artifactId>
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 	<name>Semantic Versioning App</name>
 	<description>A Spring Boot application with automated Semantic Versioning</description>
 	<url />
@@ -21,12 +21,13 @@
 	<developers>
 		<developer />
 	</developers>
-	<scm>
-		<connection />
-		<developerConnection />
-		<tag />
-		<url />
-	</scm>
+	<!-- Configuração de SCM -->
+    <scm>
+        <connection>scm:git:https://github.com/flaviohenso/versionSemantic.git</connection>
+        <developerConnection>scm:git:git@github.com:flaviohenso/versionSemantic.git</developerConnection>
+        <url>https://github.com/flaviohenso/versionSemantic</url>
+        <tag>HEAD</tag>
+    </scm>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -48,6 +49,9 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -55,49 +59,39 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- Plugin para versionamento baseado em tags do Git -->
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>versions-maven-plugin</artifactId>
-            <version>2.14.2</version>
-            <executions>
-                <execution>
-                    <phase>validate</phase>
-                    <goals>
-                        <goal>set</goal>
-                    </goals>
-                    <configuration>
-                        <newVersion>${revision}</newVersion>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
+			<!-- Plugin para obter informações de versão do Git -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>4.0.0</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
-        <plugin>
-            <groupId>pl.project13.maven</groupId>
-            <artifactId>git-commit-id-plugin</artifactId>
-            <version>4.0.0</version>
-            <executions>
-                <execution>
-                    <phase>initialize</phase>
-                    <goals>
-                        <goal>revision</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-
-        <!-- Plugin para gerenciar o controle de versão no Git -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-scm-plugin</artifactId>
-            <version>1.11.3</version>
-            <configuration>
-                <connectionType>developerConnection</connectionType>
-                <developerConnection>scm:git:git@github.com:flaviohenso/versionSemantic.git</developerConnection>
-                <tag>${project.version}</tag>
-            </configuration>
-        </plugin>
+			<!-- Plugin para atualizar a versão no pom.xml -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.14.2</version>
+				<executions>
+					<execution>
+						<id>update-version</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>set</goal>
+						</goals>
+						<configuration>
+							<newVersion>${git.commit.id.describe}</newVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
