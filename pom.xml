@@ -60,6 +60,9 @@
 				<groupId>gg.nils</groupId>
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.0.0</version>
+				<configuration>
+					<tagPattern>v(\d+)</tagPattern>
+				</configuration>
 				<executions>
 					<execution>
 						<phase>verify</phase>
