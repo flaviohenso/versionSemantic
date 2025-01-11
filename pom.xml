@@ -61,7 +61,6 @@
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.0.0</version>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>
