@@ -59,7 +59,7 @@
 			<plugin>
 				<groupId>gg.nils</groupId>
 				<artifactId>semantic-release-maven-plugin</artifactId>
-				<version>2.0.0</version>
+				<version>1.1.10</version>
 				<configuration>
 					<tagPattern>v(\d+\.\d+\.\d+)</tagPattern>
 				</configuration>
