@@ -3,6 +3,9 @@ package com.version.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/*
+ * This class is a controller class that handles the request for the version of the application.
+ */
 @Controller
 public class VersionController {
 
