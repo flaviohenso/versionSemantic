@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.version</groupId>
 	<artifactId>semantic-versioning-app</artifactId>
-	<version>2.0.0</version>
+	<version>718ea33</version>
 	<name>Semantic Versioning App</name>
 	<description>A Spring Boot application with automated Semantic Versioning</description>
 	<url />
@@ -59,39 +59,46 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- Plugin para obter informações de versão do Git -->
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-				<version>4.0.0</version>
-				<executions>
-					<execution>
-						<phase>initialize</phase>
-						<goals>
-							<goal>revision</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- Plugin para obter informações do Git -->
+        <plugin>
+            <groupId>pl.project13.maven</groupId>
+            <artifactId>git-commit-id-plugin</artifactId>
+            <version>4.0.0</version>
+            <configuration>
+                <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                <generateGitPropertiesFile>false</generateGitPropertiesFile>
+                <includeOnlyProperties>
+                    <property>git.commit.id.describe</property>
+                </includeOnlyProperties>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>initialize</phase>
+                    <goals>
+                        <goal>revision</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 
-			<!-- Plugin para atualizar a versão no pom.xml -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.14.2</version>
-				<executions>
-					<execution>
-						<id>update-version</id>
-						<phase>initialize</phase>
-						<goals>
-							<goal>set</goal>
-						</goals>
-						<configuration>
-							<newVersion>${git.commit.id.describe}</newVersion>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+        <!-- Plugin para atualizar a versão no pom.xml -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+            <version>2.14.2</version>
+            <executions>
+                <execution>
+                    <id>update-version</id>
+                    <phase>initialize</phase>
+                    <goals>
+                        <goal>set</goal>
+                    </goals>
+                    <configuration>
+                        <newVersion>${git.commit.id.describe}</newVersion>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
 		</plugins>
 	</build>
 </project>
