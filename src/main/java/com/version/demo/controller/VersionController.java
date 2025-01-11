@@ -8,9 +8,7 @@ public class VersionController {
 
     @GetMapping("/version")
     public String getVersion() {
-
         String version = "Semantic Versioning App - Version 1.0.0";
-
         return version;
     }
 
