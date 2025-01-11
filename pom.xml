@@ -59,10 +59,10 @@
 				<artifactId>semantic-release-maven-plugin</artifactId>
 				<version>1.1.10</version>
                  <configuration>
-                    
+                    <versionFormat>MAJOR.MINOR.PATCH</versionFormat>
+                    <remoteRepository>github</remoteRepository>
                     <breakingChangePattern>BREAKING CHANGE</breakingChangePattern>
                     <commitMessagePattern>feat|fix|BREAKING CHANGE</commitMessagePattern>
-                    
                 </configuration>
 				<executions>
 					<execution>
